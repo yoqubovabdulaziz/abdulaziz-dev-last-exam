@@ -1,0 +1,95 @@
+#catalog {
+  padding-bottom: 50px;
+  .catalog {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      &__link {
+        width: 220px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 100px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 21.86px;
+        border: 1px solid #454545;
+        color: #454545;
+        background-color: transparent;
+        svg {
+          font-size: 20px;
+          transition: 0.3s;
+        }
+        &:hover {
+          background-color: #f2f2f2;
+          svg {
+            transform: translate(5px);
+          }
+        }
+      }
+    }
+    &__title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 54.64px;
+      color: #454545;
+    }
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      border-radius: 20px;
+      background-color: #f2f2f2;
+      height: 250px;
+      transition: 0.25s;
+      &__title {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+        color: #454545;
+      }
+      &__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 15.4px;
+        color: #454545;
+        svg {
+          font-size: 20px;
+          transition: 0.3s;
+        }
+      }
+      &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 32px 0 32px 32px;
+      }
+      &__frame {
+        padding: 30px;
+      }
+      &:hover {
+        background-color: #ddd;
+        svg {
+          transform: translate(5px);
+        }
+      }
+    }
+    &__box:nth-child(3),
+    &__box:nth-child(5) {
+      .catalog__box__frame {
+        padding: 0;
+      }
+    }
+  }
+}

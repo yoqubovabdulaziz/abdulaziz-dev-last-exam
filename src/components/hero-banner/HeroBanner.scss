@@ -1,0 +1,24 @@
+#hero {
+  padding: 50px 0 100px 0;
+  .hero {
+    background-color: #f2f2f2;
+    border-radius: 50px;
+    .hero__banner {
+      display: flex;
+      align-items: center;
+      padding: 0 120px;
+    }
+    .banner__title {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 67.42px;
+      color: #454545;
+      span {
+        background-color: #454545;
+        color: #fff;
+        padding: 0 20px 10px 20px;
+        border-radius: 50px;
+      }
+    }
+  }
+}
