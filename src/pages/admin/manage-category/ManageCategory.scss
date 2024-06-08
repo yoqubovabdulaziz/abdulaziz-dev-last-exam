@@ -1,0 +1,74 @@
+#manage-category {
+  padding: 30px;
+  .manage__category {
+    &__title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 30.8px;
+      margin-bottom: 20px;
+      color: #454545;
+    }
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    .category__item {
+      padding: 6px 10px;
+      border-radius: 8px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      border: 1px solid #454545;
+      &__title {
+        font-size: 18px;
+        color: #454545;
+      }
+      &__actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        button {
+          width: 50px;
+          height: 27px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+          border: 1px solid #454545;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 21.86px;
+          color: #454545;
+          background-color: transparent;
+          transition: 0.5s;
+          &:hover {
+            background-color: #ddd9;
+          }
+        }
+        .category__item__delete__btn {
+          font-size: 17px;
+          color: #fff;
+          background-color: #454545;
+          &:hover {
+            background-color: #505050;
+          }
+        }
+        .deleting__category {
+          width: 110px !important;
+          background-color: #c2c2c2;
+          color: #000;
+          cursor: not-allowed;
+          opacity: 0.5;
+          svg {
+            color: #000;
+          }
+        }
+        .category__item__deleting__edit {
+          width: 0;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

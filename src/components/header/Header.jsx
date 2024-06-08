@@ -9,7 +9,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import logo from "../../assets/images/nav-logo.svg"
 import antena from "../../assets/images/antena.svg"
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useGetProductQuery } from '../../context/productApi';
 
 const Header = () => {
@@ -19,6 +19,11 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState(false)
     const inputRef = useRef(null);
     const [searchValue, setSearchValue] = useState("")
+
+    let { pathname } = useLocation();
+    if (pathname.includes("/admin")) {
+        return <></>;
+    }
 
     const handleSearchClick = () => {
         setShowSearch(true);
@@ -100,7 +105,7 @@ const Header = () => {
                             <span className="toggle__bottom"></span>
                             <p>salom</p>
                         </button>
-                        <NavLink className="nav__logo">
+                        <NavLink to="/" className="nav__logo">
                             <img src={logo} alt="" />
                             <p>NORNLIGHT</p>
                         </NavLink>

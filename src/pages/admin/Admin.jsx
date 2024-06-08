@@ -1,13 +1,49 @@
-import React, { memo } from 'react'
+import React from 'react'
 import "./Admin.scss"
 
+import { FaArrowLeft } from "react-icons/fa6";
+import { MdOutlineCreateNewFolder, MdOutlineCreate, MdOutlineLogout } from "react-icons/md";
+
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { memo } from 'react';
+
 const Admin = () => {
+    const navigate = useNavigate()
     return (
-        <section id="admin">
-            <div className="container admin">
-                <h1>admin</h1>
+        <div className="admin">
+            <div className="admin__sidebar">
+                <div className="admin__sidebar__top">
+                    <h2 className='admin__title'>Admin Dashboard</h2>
+                    <div className="admin__sidebar__list">
+                        <NavLink to={"create-product"}>
+                            <MdOutlineCreateNewFolder />
+                            Create Product
+                        </NavLink>
+                        <NavLink to={"manage-product"}>
+                            <MdOutlineCreate />
+                            Manage Product
+                        </NavLink>
+                        <NavLink to={"create-category"}>
+                            <MdOutlineCreateNewFolder />
+                            Create Categoty
+                        </NavLink>
+                        <NavLink to={"manage-category"}>
+                            <MdOutlineCreate />
+                            Manage Categoty
+                        </NavLink>
+                    </div>
+                </div>
+                <div className="admin__sidebar__bottom">
+                    <button onClick={() => navigate("/")} className="go__home">
+                        <MdOutlineLogout />
+                        Log out
+                    </button>
+                </div>
             </div>
-        </section>
+            <div className="admin__content">
+                <Outlet />
+            </div>
+        </div>
     )
 }
 

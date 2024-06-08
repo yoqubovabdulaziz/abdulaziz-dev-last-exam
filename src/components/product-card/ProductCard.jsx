@@ -5,8 +5,9 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa6";
 
 import card from "../../assets/images/card.png"
+import test from "../../assets/images/test.jpg"
 
-const ProductCard = ({ id, title, description, price, oldPrice, image }) => {
+const ProductCard = ({ id, title, description, price, oldPrice, image, category }) => {
 
     return (
         <>
@@ -15,9 +16,10 @@ const ProductCard = ({ id, title, description, price, oldPrice, image }) => {
                     <FaRegHeart />
                 </button>
                 <div className="card__frame">
-                    <img src={card} alt="" />
+                    <img src={image} alt="" />
                 </div>
                 <div className="card__content">
+                    <p className="card__category">{category}</p>
                     <h3 className="card__title">{title}</h3>
                     <div className="card__bottom">
                         <div className="card__price__wrapper">

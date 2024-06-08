@@ -5,8 +5,17 @@ import { GoArrowRight } from "react-icons/go";
 
 import { Link } from 'react-router-dom'
 import ProductCard from '../product-card/ProductCard';
+import { useGetCategoryQuery } from '../../context/categoryApi';
+import { useState } from 'react';
 
 const Products = ({ data, setProductLimit }) => {
+    const [categoryValue, setCategoryValue] = useState("")
+    const { data: dataGetCategory } = useGetCategoryQuery()
+
+    const filteredProduct = categoryValue
+        ? data?.filter(el => el.category === categoryValue)
+        : data;
+
     return (
         <>
             <section id="products">
@@ -20,49 +29,23 @@ const Products = ({ data, setProductLimit }) => {
                     </div>
                     <ul className="products__categories">
                         <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Светильники
+                            <button onClick={() => setCategoryValue("")} className="products__categories__btn">
+                                All
                             </button>
                         </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Люстры
-                            </button>
-                        </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Лампы
-                            </button>
-                        </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Настольные лампы
-                            </button>
-                        </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Ночники
-                            </button>
-                        </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Подстветка
-                            </button>
-                        </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Уличное освещение
-                            </button>
-                        </li>
-                        <li className="products__categories__item">
-                            <button className="products__categories__btn">
-                                Мебельные установки
-                            </button>
-                        </li>
-                    </ul>
-                    <div className="products__wrapper">
                         {
-                            data?.map(el => (
+                            dataGetCategory?.map(el => (
+                                <li key={el.id} className="products__categories__item">
+                                    <button onClick={() => setCategoryValue(el.title)} className="products__categories__btn">
+                                        {el.title}
+                                    </button>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <div className={`products__wrapper ${filteredProduct?.length ? "" : "simple__products__wrapper"}`}>
+                        {
+                            filteredProduct?.length ? filteredProduct?.map(el => (
                                 <ProductCard
                                     key={el.id}
                                     title={el.title}
@@ -70,17 +53,23 @@ const Products = ({ data, setProductLimit }) => {
                                     price={el.price}
                                     oldPrice={el.oldPrice}
                                     image={el.image}
+                                    category={el.category}
                                 />
-                            ))
+                            )) :
+                                <div className="no__category">
+                                    <p>Bunday Categoriyalik Maxsulot Mavjud emas</p>
+                                </div>
                         }
                     </div>
-                    <button
-                        onClick={() => setProductLimit(p => p + 4)}
-                        className="products__see__more__btn">
-                        See More
-                    </button>
+                    {
+                        filteredProduct?.length ? <button
+                            onClick={() => setProductLimit(p => p + 4)}
+                            className="products__see__more__btn">
+                            See More
+                        </button> : ""
+                    }
                 </div>
-            </section>
+            </section >
         </>
     )
 }

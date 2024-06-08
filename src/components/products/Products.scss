@@ -56,9 +56,12 @@
     }
     &__wrapper {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 280px);
       gap: 24px;
       padding: 40px 0;
+    }
+    .simple__products__wrapper {
+      display: block;
     }
     &__see__more__btn {
       display: block;
@@ -71,6 +74,15 @@
       margin-right: auto;
       color: #fff;
       background-color: #454545;
+    }
+    .no__category {
+      width: 100%;
+      padding: 60px;
+      text-align: center;
+      background-color: #fff;
+      p {
+        font-size: 30px;
+      }
     }
   }
 }

@@ -1,0 +1,48 @@
+#create-category {
+  padding: 50px;
+  .create__category {
+    &__title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 30.8px;
+      margin-bottom: 20px;
+      color: #454545;
+    }
+    &__form {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      max-width: 400px;
+      input,
+      button {
+        height: 40px;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        background-color: #ddd9;
+      }
+      button {
+        position: relative;
+        padding: 0;
+        color: #fff;
+        background-color: #454545;
+      }
+      .creating__category {
+        animation: loadingBackground 1.5s infinite;
+      }
+    }
+  }
+}
+
+@keyframes loadingBackground {
+  0% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: #999;
+  }
+  100% {
+    background-color: #ccc;
+  }
+}

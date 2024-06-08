@@ -1,0 +1,17 @@
+#manage-product {
+  padding: 22px 0 50px 33px;
+  .manage__product {
+    &__title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 30.8px;
+      color: #454545;
+      margin-bottom: 40px;
+    }
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+  }
+}
