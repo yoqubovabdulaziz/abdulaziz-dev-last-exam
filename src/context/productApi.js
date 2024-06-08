@@ -10,13 +10,6 @@ export const productApi = api.injectEndpoints({
             }),
             providesTags: ["Product"]
         }),
-        // Get limit products request
-        getLimitProduct: build.query({
-            query: (count) => ({
-                url: `/products?limit=${count}`,
-            }),
-            providesTags: ["Product"]
-        }),
         // Post request
         createProduct: build.mutation({
             query: (body) => ({
@@ -51,5 +44,4 @@ export const {
     useDeleteProductMutation,
     useGetProductQuery,
     useUpdateProductMutation,
-    useGetLimitProductQuery
 } = productApi

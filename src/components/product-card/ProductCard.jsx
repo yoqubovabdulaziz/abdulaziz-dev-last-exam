@@ -6,7 +6,7 @@ import { FaRegHeart } from "react-icons/fa6";
 
 import card from "../../assets/images/card.png"
 
-const ProductCard = () => {
+const ProductCard = ({ id, title, description, price, oldPrice, image }) => {
 
     return (
         <>
@@ -18,11 +18,11 @@ const ProductCard = () => {
                     <img src={card} alt="" />
                 </div>
                 <div className="card__content">
-                    <h3 className="card__title">Встраиваемый светильник Novotech</h3>
+                    <h3 className="card__title">{title}</h3>
                     <div className="card__bottom">
                         <div className="card__price__wrapper">
-                            <del className='card__old__price'>7 000₽</del>
-                            <p className="card__price">6 399₽</p>
+                            <del className='card__old__price'>{oldPrice}₽</del>
+                            <p className="card__price">{price}₽</p>
                         </div>
                         <button className="card__cart__btn">
                             <FiShoppingCart />

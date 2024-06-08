@@ -19,6 +19,16 @@
   padding: 0 10px;
 }
 
+.wrapper {
+  padding-top: 114px;
+}
+
+@media (max-width: 880px) {
+  .wrapper {
+    padding-top: 73px;
+  }
+}
+
 button {
   cursor: pointer;
   border: none;
