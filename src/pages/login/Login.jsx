@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import "./Login.scss"
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -8,6 +8,10 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     // username: john32
     // password: 87654321

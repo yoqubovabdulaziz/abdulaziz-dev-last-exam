@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Blog.scss"
 
 import blog1 from "../../assets/images/blog1.png";
@@ -8,6 +8,9 @@ import { FiArrowRight } from 'react-icons/fi';
 import Breadcrumb from '../../components/breadCrumb/BreadCrumb';
 
 const Blog = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <section id="blog__page">
             <div className="container blog">

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Garant.scss"
 import Breadcrumb from '../../components/breadCrumb/BreadCrumb'
 
 const Garant = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <section id="garant">
             <div className="garant container">

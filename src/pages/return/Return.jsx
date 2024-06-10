@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Return.scss"
 import Breadcrumb from '../../components/breadCrumb/BreadCrumb'
 
 const Return = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <section id="return">
             <div className="container return">

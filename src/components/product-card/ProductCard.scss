@@ -97,7 +97,11 @@
     align-items: center;
     font-size: 18px;
     border-radius: 100px;
+    color: #454545;
     background-color: #f2f2f2;
+    svg {
+      color: #454545;
+    }
   }
   &__actions__wrapper {
     display: flex;

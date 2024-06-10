@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./ShippingPayment.scss"
 import Breadcrumb from '../../components/breadCrumb/BreadCrumb'
 
 const ShippingPayment = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <section id="payment">

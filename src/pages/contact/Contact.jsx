@@ -1,8 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import "./Contact.scss"
 import Breadcrumb from '../../components/breadCrumb/BreadCrumb'
 
 const Contact = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <section id="contact">
