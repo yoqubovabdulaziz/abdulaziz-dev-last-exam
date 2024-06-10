@@ -4,7 +4,6 @@ import "./EditCategory.scss"
 import { IoCloseSharp } from "react-icons/io5";
 import { useUpdateCategoryMutation } from '../../context/categoryApi';
 import { toast } from 'react-toastify';
-import Loading from '../loading/Loading';
 
 const EditCategory = ({ category, setEditCategoryModule }) => {
     const [categoryValue, setCategoryValue] = useState("")

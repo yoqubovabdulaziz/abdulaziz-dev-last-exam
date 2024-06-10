@@ -4,7 +4,7 @@ import "./empty.scss"
 const Empty = () => {
     return (
         <div className='empty'>
-            <h1>Nothing Here</h1>
+            <h1>Empty Wishlist :(</h1>
         </div>
     )
 }

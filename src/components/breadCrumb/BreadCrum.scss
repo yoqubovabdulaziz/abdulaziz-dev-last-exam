@@ -1,0 +1,14 @@
+.breadcrumb {
+  padding-bottom: 48px;
+  &__main {
+    color: #454545;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    color: #aaa;
+    padding-left: 4px;
+  }
+}

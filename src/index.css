@@ -19,6 +19,12 @@
   padding: 0 10px;
 }
 
+.container__1800 {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
 .wrapper {
   padding-top: 114px;
 }

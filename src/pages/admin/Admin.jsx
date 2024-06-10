@@ -6,9 +6,16 @@ import { MdOutlineCreateNewFolder, MdOutlineCreate, MdOutlineLogout } from "reac
 
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { memo } from 'react';
+import { toast } from 'react-toastify';
 
 const Admin = () => {
     const navigate = useNavigate()
+
+    const handleLogout = () => {
+        localStorage.removeItem("token")
+        navigate("/login")
+        toast.warning("You have logged out")
+    }
     return (
         <div className="admin">
             <div className="admin__sidebar">
@@ -34,7 +41,7 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className="admin__sidebar__bottom">
-                    <button onClick={() => navigate("/")} className="go__home">
+                    <button onClick={handleLogout} className="go__home">
                         <MdOutlineLogout />
                         Log out
                     </button>

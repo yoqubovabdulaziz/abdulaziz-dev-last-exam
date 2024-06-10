@@ -43,11 +43,26 @@ const Products = ({ data, setProductLimit }) => {
                             ))
                         }
                     </ul>
+                    <select
+                        value={categoryValue}
+                        onChange={(e) => setCategoryValue(e.target.value)}
+                        name="" id="" className="products__category__select">
+                        <option value="">All</option>
+                        {
+                            dataGetCategory?.map(el => (
+                                <option key={el.id} value={el.title}>
+                                    {el.title}
+                                </option>
+                            ))
+                        }
+                    </select>
                     <div className={`products__wrapper ${filteredProduct?.length ? "" : "simple__products__wrapper"}`}>
                         {
                             filteredProduct?.length ? filteredProduct?.map(el => (
                                 <ProductCard
                                     key={el.id}
+                                    el={el}
+                                    id={el.id}
                                     title={el.title}
                                     description={el.description}
                                     price={el.price}

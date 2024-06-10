@@ -11,14 +11,17 @@ import antena from "../../assets/images/antena.svg"
 
 import { NavLink, useLocation } from 'react-router-dom'
 import { useGetProductQuery } from '../../context/productApi';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-    const { data, error } = useGetProductQuery()
+    const { data } = useGetProductQuery()
     const [menuToggle, setMenuToggle] = useState(false)
     const [navbarShrink, setNavbarShrink] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
     const inputRef = useRef(null);
     const [searchValue, setSearchValue] = useState("")
+    const cart = useSelector(state => state.cart.value)
+    const wishlist = useSelector(state => state.wishlist.value)
 
     let { pathname } = useLocation();
     if (pathname.includes("/admin")) {
@@ -45,6 +48,7 @@ const Header = () => {
         <>
             <header className={`header ${navbarShrink ? "navbar__shrink" : ""}`} id='header'>
                 <div className="container sub__header">
+
                     <ul className="sub__header__list">
                         <li className="sub__header__item">
                             <NavLink
@@ -55,40 +59,41 @@ const Header = () => {
                         </li>
                         <li className="sub__header__item">
                             <NavLink
-                                to="/about"
+                                to="/shipping-payment"
                                 className="sub__header__link">
                                 Доставка и оплата
                             </NavLink>
                         </li>
                         <li className="sub__header__item">
                             <NavLink
-                                to="/about"
+                                to="/return"
                                 className="sub__header__link">
                                 Возврат
                             </NavLink>
                         </li>
                         <li className="sub__header__item">
                             <NavLink
-                                to="/about"
+                                to="/garant"
                                 className="sub__header__link">
                                 Гарантии
                             </NavLink>
                         </li>
                         <li className="sub__header__item">
                             <NavLink
-                                to="/about"
+                                to="/contact"
                                 className="sub__header__link">
                                 Контакты
                             </NavLink>
                         </li>
                         <li className="sub__header__item">
                             <NavLink
-                                to="/about"
+                                to="/blog"
                                 className="sub__header__link">
                                 Блог
                             </NavLink>
                         </li>
                     </ul>
+
                     <div className="sub__header__contact__wrapper">
                         <p>8 (800) 890-46-56</p>
                         <p>Заказать звонок</p>
@@ -107,7 +112,7 @@ const Header = () => {
                         </button>
                         <NavLink to="/" className="nav__logo">
                             <img src={logo} alt="" />
-                            <p>NORNLIGHT</p>
+                            <p>NORN<span>LIGHT</span></p>
                         </NavLink>
                     </div>
 
@@ -137,7 +142,12 @@ const Header = () => {
                                 <div className="nav__search__content__box">
                                     {
                                         searchValue.trim() ? filteredData?.map(el => (
-                                            <NavLink key={el.id} to={`/product/${el.id}`} className="nav__search__item">
+                                            <NavLink
+                                                onClick={() => setSearchValue("")}
+                                                key={el.id}
+                                                to={`/single-product/${el.id}`}
+                                                className="nav__search__item"
+                                            >
                                                 <p>{el.title}</p>
                                             </NavLink>
                                         )) : <></>
@@ -174,7 +184,15 @@ const Header = () => {
                                     <div className="nav__media__search__content__box">
                                         {
                                             searchValue.trim() ? filteredData?.map(el => (
-                                                <NavLink key={el.id} to={`/product/${el.id}`} className="nav__media__search__item">
+                                                <NavLink
+                                                    onClick={() => {
+                                                        setSearchValue("")
+                                                        setShowSearch(false)
+                                                    }}
+                                                    key={el.id}
+                                                    to={`/single-product/${el.id}`}
+                                                    className="nav__media__search__item"
+                                                >
                                                     <p>{el.title}</p>
                                                 </NavLink>
                                             )) : <></>
@@ -183,40 +201,45 @@ const Header = () => {
                             }
                         </div>
 
-                        <NavLink className="nav__actions__item">
+                        <NavLink to="/wishlist" className="nav__actions__item">
                             <FaRegHeart />
                             <p>Избранное</p>
+                            <span className='wishlist__length'>{wishlist.length}</span>
                         </NavLink>
-                        <NavLink className="nav__actions__item nav__actions__antena">
+
+                        <NavLink to="/antena" className="nav__actions__item nav__actions__antena">
                             <img src={antena} alt="" />
                             <p>Сравнение</p>
                         </NavLink>
-                        <NavLink className="nav__actions__item">
+
+                        <NavLink to="/cart" className="nav__actions__item">
                             <FiShoppingCart />
                             <p>Корзина</p>
+                            <span>{cart.length}</span>
                         </NavLink>
+
                     </div>
                 </nav>
             </header>
 
             <ul className={`nav__toggle ${menuToggle ? "show__nav__toggle" : ""}`}>
                 <li className='nav__toggle__item'>
-                    <NavLink className="nav__toggle__link">О компании</NavLink>
+                    <NavLink onClick={() => setMenuToggle(false)} to="/about" className="nav__toggle__link">О компании</NavLink>
                 </li>
                 <li className="nav__toggle__item">
-                    <NavLink className="nav__toggle__link">Доставка и оплата</NavLink>
+                    <NavLink onClick={() => setMenuToggle(false)} to="/shipping-payment" className="nav__toggle__link">Доставка и оплата</NavLink>
                 </li>
                 <li className="nav__toggle__item">
-                    <NavLink className="nav__toggle__link">Возврат</NavLink>
+                    <NavLink onClick={() => setMenuToggle(false)} to="/return" className="nav__toggle__link">Возврат</NavLink>
                 </li>
                 <li className="nav__toggle__item">
-                    <NavLink className="nav__toggle__link">Гарантии</NavLink>
+                    <NavLink onClick={() => setMenuToggle(false)} to="/garant" className="nav__toggle__link">Гарантии</NavLink>
                 </li>
                 <li className="nav__toggle__item">
-                    <NavLink className="nav__toggle__link">Контакты</NavLink>
+                    <NavLink onClick={() => setMenuToggle(false)} to="/contact" className="nav__toggle__link">Контакты</NavLink>
                 </li>
                 <li className="nav__toggle__item">
-                    <NavLink className="nav__toggle__link nav__last__toggle__link">Блог</NavLink>
+                    <NavLink onClick={() => setMenuToggle(false)} to="/blog" className="nav__toggle__link nav__last__toggle__link">Блог</NavLink>
                 </li>
                 <li className="nav__toggle__item">
                     <button className="nav__toggle__catalog__btn">

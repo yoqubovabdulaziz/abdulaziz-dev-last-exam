@@ -1,11 +1,18 @@
 #catalog {
-  padding-bottom: 50px;
+  padding: 102px 0px 50px;
   .catalog {
+    position: relative;
+    padding-bottom: 50px;
     &__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 45px;
+      @media (max-width: 450px) {
+        flex-direction: column;
+        gap: 20px;
+        align-items: start;
+      }
       &__link {
         width: 220px;
         height: 50px;
@@ -19,7 +26,7 @@
         line-height: 21.86px;
         border: 1px solid #454545;
         color: #454545;
-        background-color: transparent;
+        transition: 0.3s;
         svg {
           font-size: 20px;
           transition: 0.3s;
@@ -37,59 +44,92 @@
       font-weight: 700;
       line-height: 54.64px;
       color: #454545;
+      @media (max-width: 450px) {
+        font-size: 33px;
+        line-height: 46px;
+      }
     }
     &__wrapper {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    &__box {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      border-radius: 20px;
-      background-color: #f2f2f2;
-      height: 250px;
-      transition: 0.25s;
-      &__title {
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 22px;
-        color: #454545;
-      }
-      &__link {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 15.4px;
-        color: #454545;
-        svg {
-          font-size: 20px;
-          transition: 0.3s;
-        }
-      }
-      &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 32px 0 32px 32px;
-      }
-      &__frame {
-        padding: 30px;
-      }
-      &:hover {
-        background-color: #ddd;
-        svg {
-          transform: translate(5px);
-        }
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 10px;
+      @media (max-width: 850px) {
+        display: none;
       }
     }
-    &__box:nth-child(3),
-    &__box:nth-child(5) {
-      .catalog__box__frame {
-        padding: 0;
+    &__res {
+      display: none;
+      @media (max-width: 850px) {
+        display: flex;
+        justify-content: space-between;
       }
+    }
+    .home__catolog__card {
+      width: 400px;
+      display: flex;
+      align-self: center;
+      justify-content: space-between;
+      padding: 32px;
+      background-color: #f2f2f2;
+      border-radius: 20px;
+      transition: 0.3s;
+      @media (max-width: 850px) {
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+      }
+      @media (max-width: 500px) {
+        padding: 10px;
+      }
+    }
+    .home__catolog__card:hover {
+      background-color: #ddd;
+      @media (max-width: 500px) {
+        background-color: #fff;
+      }
+    }
+    .home__catolog__context {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .home__catolog__img {
+      max-width: 200px;
+      height: 180px;
+      object-fit: contain;
+      @media (max-width: 850px) {
+        width: 90%;
+        margin-left: -110px;
+      }
+    }
+    .home__catolog__title {
+      font-size: 20px;
+      line-height: 22px;
+      color: #454545;
+      @media (max-width: 700px) {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      @media (max-width: 500px) {
+        width: 82px;
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+    .home__catolog__link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 16px;
+      color: #454545;
+      background-color: transparent;
     }
   }
 }

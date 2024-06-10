@@ -1,5 +1,5 @@
 #hero {
-  padding: 50px 0 100px 0;
+  padding: 50px 15px 100px 15px;
   .hero {
     background-color: #f2f2f2;
     border-radius: 50px;
@@ -7,17 +7,43 @@
       display: flex;
       align-items: center;
       padding: 0 120px;
+      @media (max-width: 1080px) {
+        flex-direction: column-reverse;
+        gap: 30px;
+        padding: 0 20px 100px 20px;
+      }
+      @media (max-width: 500px) {
+        padding-bottom: 70px;
+      }
+      .hero__banner__frame {
+        img {
+          @media (max-width: 550px) {
+            width: 100%;
+          }
+        }
+      }
     }
     .banner__title {
       font-size: 44px;
       font-weight: 700;
       line-height: 67.42px;
       color: #454545;
+      @media (max-width: 500px) {
+        font-size: 30px;
+        line-height: 50px;
+      }
+      @media (max-width: 400px) {
+        font-size: 28px;
+        line-height: 40px;
+      }
       span {
         background-color: #454545;
         color: #fff;
         padding: 0 20px 10px 20px;
         border-radius: 50px;
+        @media (max-width: 400px) {
+          padding: 5px;
+        }
       }
     }
   }
