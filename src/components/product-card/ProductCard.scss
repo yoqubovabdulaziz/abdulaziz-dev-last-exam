@@ -137,6 +137,9 @@
     svg {
       color: #000;
     }
+    @media (max-width: 700px) {
+      transform: translate(-40px);
+    }
   }
   .card__edit__deleting__pr {
     width: 0;

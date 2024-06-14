@@ -31,6 +31,10 @@ const ManageCategory = () => {
         }
     }, [dataDeleteCategory])
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     let category = dataGetCategory?.map((el) => (
         <div key={el.id} className="category__item">
             <h3 className="category__item__title">{el.title}</h3>

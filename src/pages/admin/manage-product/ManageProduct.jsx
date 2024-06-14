@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./ManageProduct.scss";
 import { useDeleteProductMutation, useGetProductQuery } from '../../../context/productApi';
 import { FaRegHeart } from 'react-icons/fa6';
@@ -18,6 +18,10 @@ const ManageProduct = () => {
         await deleteProduct(id);
         setDeleteLoading((prevState) => ({ ...prevState, [id]: false }));
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     const products = dataGetProducts?.map((el) => (
         <div key={el.id} className="card">

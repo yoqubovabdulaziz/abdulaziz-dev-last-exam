@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 
 const CreateProduct = () => {
     const { data: dataGetCategory } = useGetCategoryQuery()
-    const [createProduct, { isSuccess, isLoading, data: dataCreateProduct, error: errorCreateProduct }] = useCreateProductMutation()
+    const [createProduct, { data: dataCreateProduct, error: errorCreateProduct }] = useCreateProductMutation()
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [oldPrice, setOldPrice] = useState("")
@@ -53,6 +53,10 @@ const CreateProduct = () => {
             toast.error("Product could not be created")
         }
     }, [dataCreateProduct, errorCreateProduct])
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <>

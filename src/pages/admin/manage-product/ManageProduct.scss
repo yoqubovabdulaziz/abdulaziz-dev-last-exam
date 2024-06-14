@@ -1,5 +1,10 @@
 #manage-product {
   padding: 22px 0 50px 33px;
+  @media (max-width: 700px) {
+    padding: 0;
+    padding-bottom: 40px;
+    padding-top: 20px;
+  }
   .manage__product {
     &__title {
       font-size: 28px;
@@ -12,6 +17,38 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
+      @media (max-width: 1300px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 850px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .card__bottom {
+        @media (max-width: 700px) {
+          flex-direction: column;
+          align-items: start;
+          gap: 10px;
+        }
+        .card__delete__btn,
+        .card__edit__btn {
+          @media (max-width: 700px) {
+            width: 40px;
+            font-size: 14px;
+          }
+        }
+        .card__edit__btn {
+          @media (max-width: 700px) {
+            font-size: 18px !important;
+          }
+        }
+      }
     }
   }
 }
